@@ -7,6 +7,6 @@ import (
 )
 
 // SetupMessageRoutes defines the POST route for messages
-func SetupMessageRoutes(r *gin.Engine) {
-	r.POST("/message", controllers.HandlePostMessage)
+func SetupMessageRoutes(rg *gin.RouterGroup) {
+	rg.POST("/message", controllers.HandlePostMessage)
 }

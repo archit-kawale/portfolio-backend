@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/archit-kawale/portfolio-backend/config"
 	"github.com/archit-kawale/portfolio-backend/routes"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,7 +13,10 @@ func main() {
 
 	r := gin.Default()
 
-	routes.SetupMessageRoutes(r)
+	api := r.Group("/api")
+	{
+		routes.SetupMessageRoutes(api)
+	}
 
 	if err := r.Run(":8080"); err != nil {
 		panic("Failed to start server: " + err.Error())
