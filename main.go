@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/archit-kawale/portfolio-backend/config"
+	"github.com/archit-kawale/portfolio-backend/middleware"
 	"github.com/archit-kawale/portfolio-backend/routes"
 	"github.com/gin-gonic/gin"
 )
@@ -12,6 +13,8 @@ func main() {
 	config.InitializeSnowflake(1)
 
 	r := gin.Default()
+
+	r.Use(middleware.CORSMiddleware())
 
 	api := r.Group("/api")
 	{
